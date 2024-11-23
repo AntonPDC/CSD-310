@@ -3,7 +3,7 @@ from mysql.connector import errorcode
 
 config = {
     "user": "root",
-    "password": "Penrem828",
+    "password": "*****",
     "host": "127.0.0.1",
     "database": "movies",
     "raise_on_warnings": True,

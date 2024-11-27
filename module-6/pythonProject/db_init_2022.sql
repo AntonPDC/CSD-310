@@ -10,7 +10,7 @@ DROP USER IF EXISTS 'movies_user'@'localhost';
 
 
 -- create movies_user and grant them all privileges to the movies database 
-CREATE USER 'movies_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'popcorn';
+CREATE USER 'movies_user'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'popcorn';
 
 -- grant all privileges to the movies database to user movies_user on localhost 
 GRANT ALL PRIVILEGES ON movies.* TO 'movies_user'@'localhost';

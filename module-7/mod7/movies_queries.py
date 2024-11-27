@@ -18,25 +18,38 @@ try:
     query_studio = "SELECT * FROM studio"
     cursor.execute(query_studio)
     studio_results = cursor.fetchall()
-    print("\n Studio results: {}".format(studio_results))
+    print("-- DISPLAYING Studio RECORDS --")
+    for studio in studio_results:
+        print(f"Studio ID: {studio[0]}")
+        print(f"Studio Name: {studio[1]}")
+        print()
 # Query for all fields in genre
     query_genre = "SELECT * FROM genre"
     cursor.execute(query_genre)
     genre_results = cursor.fetchall()
-    print("\n Genre results: {}".format(genre_results))
+    print("-- DISPLAYING Genre RECORDS --")
+    for genre in genre_results:
+        print(f"Genre ID: {genre[0]}")
+        print(f"Genre: {genre[1]}")
+        print()
 # Query short movies
     query_short_movie= "SELECT film_name, film_runtime FROM film WHERE film_runtime <= 120"
     cursor.execute(query_short_movie)
     short_movie_results = cursor.fetchall()
-    print("\n Short Movie results: {}".format(short_movie_results))
+    print("-- DISPLAYING Short Film RECORDS --")
+    for name, runtime in short_movie_results:
+        print(f"Film Name: {name}")
+        print(f"Film Runtime: {runtime}")
+        print()
 # Query movies grouped by director
     query_by_director= "SELECT film_director, film_name FROM film ORDER BY film_director, film_name"
     cursor.execute(query_by_director)
     director_results = cursor.fetchall()
-    print("\n Director results: {}".format(director_results))
-
-
-
+    print("-- DISPLAYING Director RECORDS in Order --")
+    for director, name in director_results:
+        print(f"Director: {director}")
+        print(f"Film Name: {name}")
+        print()
 
     input("\n\n Press any key to continue...")
 except mysql.connector.Error as err:
